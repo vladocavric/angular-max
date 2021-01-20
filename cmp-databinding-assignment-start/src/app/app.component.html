@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Bind it!</h3>
+      <ol>
+        <li class="bg-success">Create three new components: GameControl, Odd and Even</li>
+        <li class="bg-success">The GameControl Component should have buttons to start and stop the game</li>
+        <li class="bg-success">When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
+        <li class="bg-success">The event should be listenable from outside the component</li>
+        <li class="bg-success">When stopping the game, no more events should get emitted (clearInterval(ref))</li>
+        <li class="bg-success">A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
+        <li class="bg-success">Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
+        <li class="bg-success">Style the element (e.g. paragraph) holding your output text differently in both components</li>
+      </ol>
+      <ol>
+        <li class="bg-success">napravi 3 nove komponente: GameControl, Odd and Even</li>
+        <li class="bg-success">GameControl Komponenta treba da ima dugmad za start i stop igre</li>
+        <li class="bg-success">Prilikom starta igre,event (koji sadrzi inkrement broja) treba da bude emitovan svake sekunde (ref = setInterval())</li>
+        <li class="bg-success">Event treba da bude saslusavan izvan komponnte</li>
+        <li class="bg-success">Kad se igra stopira, event-i vise ne treba da budu emitovani (clearInterval(ref))</li>
+        <li class="bg-success">nova Odd komponenta treba da bude kreirana za svaki neparan broj emitovan, isto vazi i za parnu komponentu, naravno za svaki emitovan paran br</li>
+        <li class="bg-success">jednostavno otpremi paran ili naparan br u te 2 komponente</li>
+        <li class="bg-success">Stilizuj element (npr. paragraf) koji sadrzi otpremljen tekst drugacije u obe kompnente</li>
+      </ol>
+    </div>
+  </div>
+</div>
+<hr>
+<app-game-control
+  (intervalStarted)="intervalStarted($event)"
+></app-game-control>
+<hr>
+<div class="container" *ngFor="let gameElement of gameElements">
+    <app-even *ngIf="gameElement.game === 'even'" [even]="gameElement.num"></app-even>
+
+
+    <app-odd *ngIf="gameElement.game === 'odd'" [odd]="gameElement.num"></app-odd>
+
+</div>
+
